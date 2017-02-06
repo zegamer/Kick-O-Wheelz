@@ -3,38 +3,37 @@ import serial
 import time
 
 def key_mapping(steer,brake,throttle,nitrous):
+    if(steer<1):
+        PressKey(DIK_D)
+    elif(steer in range(-1,1)):
+        ReleaseKey(DIK_D)
 
-##    if(steer<-2):
-##        PressKey(DIK_D)
-##    if(steer in range(-2,2)):
-##        ReleaseKey(DIK_D)
-##
-##    if(steer>2):
-##        PressKey(DIK_A)
-##    if(steer in range(-2,2)):
-##        ReleaseKey(DIK_A)
+    if(steer>1):
+        PressKey(DIK_A)
+    elif(steer in range(-1,1)):
+        ReleaseKey(DIK_A)
 
-##    if(brake==1):
-##        PressKey(DIK_S)
-##    if(brake==0):
-##        ReleaseKey(DIK_S)
+    if(brake):
+        PressKey(DIK_S)
+    else:
+        ReleaseKey(DIK_S)
 
-    if(throttle==0):
-        PressKey(DIK_W)
     if(throttle==1):
+        PressKey(DIK_W)
+    else:
         ReleaseKey(DIK_W)
         
-##    if(nitrous==1):
-##        PressKey(DIK_SPACE)
-##    if(nitrous==0):
-##        ReleaseKey(DIK_SPACE)
+    if(nitrous==1):
+        PressKey(DIK_SPACE)
+    else:
+        ReleaseKey(DIK_SPACE)
 
-port = "COM4"
-baud = 25000
+port = "COM5"
+baud = 19200
 
 ser = serial.Serial(port,baud)
 
-try:        
+try:
     counter = 0
     while True:
         data = ser.readline()

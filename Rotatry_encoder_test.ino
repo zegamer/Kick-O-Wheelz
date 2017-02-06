@@ -8,7 +8,7 @@ String data="";
 
 void setup()
 {
-  Serial.begin(25000);
+  Serial.begin(19200);
   
   pinMode(pinCLK,INPUT);
   pinMode(pinDT,INPUT);
