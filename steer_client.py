@@ -10,11 +10,12 @@ nitr_pin = 13
 
 sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 
-ip = raw_input("Enter the ip shown at server : ")
-port = raw_input("Enter port shown at server : ")
-address = (ip,port)
+##ip = raw_input("Enter the ip shown at server : ")
+##port = raw_input("Enter port shown at server : ")
+##address = (ip,port)
 
-address = (address)
+##Enter the IP address shown at server. No need to change port.
+address = ('169.254.109.72',1234)
 
 try:
     sock.connect(address)
@@ -43,7 +44,7 @@ try:
         
         data = ""
         accel_data = acc.get_accel_data()
-s
+
         steer = int(accel_data['x'] - xi)
         thr = GPIO.input(thr_pin)
         brk = GPIO.input(brk_pin)

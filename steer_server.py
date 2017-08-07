@@ -3,7 +3,6 @@ from key_event import *
 import time,sys
 
 def start_server():
-
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
     port = 1234
@@ -18,21 +17,21 @@ def start_server():
 
             data,addr = sock.recvfrom(16)
             data = data.split()
-            steer = float(data[0])
-            thr = float(data[3])
+            steer = -1*float(data[0])
+            thr = float(data[1])
             brk = float(data[2])
-            nit = float(data[1])
+            nit = float(data[3])
             
             print " Steer : " + str(steer) + " Throttle : " + str(thr) + " Brake : " + str(brk) + " Nit : " + str(nit)
 
-            if(steer > 1.0):
+            if(steer > 2.0):
                 PressKey(DIK_D)
-            if steer == 0.0:
+            if steer in range(-1,1):
                 ReleaseKey(DIK_D)
 
-            if(steer < -1.0):
+            if(steer < -2.0):
                 PressKey(DIK_A)
-            if steer == 0.0:
+            if steer in range(-1,1):
                 ReleaseKey(DIK_A)
 
             if thr == 1:
@@ -59,8 +58,8 @@ def start_server():
 
 def getAddrIP():
 ##    Enter that ip shown at ipconfig/all > Ethernet via Ethernet > IPV4
-    return raw_input(" Enter IP : ")
-##    return socket.gethostbyname(socket.getfqdn())
+##    That is in case this below function does not resolve.
+    return socket.gethostbyname(socket.getfqdn())
 
 
 if __name__=='__main__':
