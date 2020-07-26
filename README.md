@@ -7,3 +7,11 @@ Kick O’ Wheelz is a low cost and user-friendly alternative to an expensive gam
 - Key Events DirectX - sevren/DirectInput-Game-Controller-Python
 
 [website]: <https://www.amity.edu/jaipur/studentworkdetail.aspx?sid=80&student=student>
+
+
+## Licence
+
+The code is **open source** under MIT Licence.
+Check licence file in the repository.
+
+For further questions, you can reach at mak17593@outlook.com
